@@ -1,9 +1,22 @@
-function cadastrarVaga() {
     // Obter dados do formulário
-    const descricao = document.getElementById('descricao').value;
-    const tipo = document.getElementById('tipo').value;
-    const numero = document.getElementById('numero').value;
-  
+    const tbody = document.querySelector('tbody');
+    const descricao = document.querySelector('#descricao');
+    const tipo = document.querySelector('#tipo');
+    const numero = document.querySelector('#numero');
+    const btnSalvar = document.querySelector('#btnSalvar');
+    const idRegistro = document.querySelector('#idVaga');
+    const nome = document.querySelector('#nomeCliente');
+    const placa = document.querySelector('#placa');
+    const tipoVeiculo = document.querySelector('#tipoVeiculo');
+    const dataEnt = document.querySelector('#dataEntrada');
+    const horaEnt = document.querySelector('#horaEntrada');
+    const dataSai = document.querySelector('#dataSaida');
+    const horaSai = document.querySelector('#horaSaida');
+    const btnRegistrar = document.querySelector('#btnRegistrar');
+
+    let items;
+
+/*function cadastrarVaga() { 
     // Validar dados
     if (!descricao || !tipo || !numero) {
       alert('Preencha todos os campos!');
@@ -38,23 +51,98 @@ function cadastrarVaga() {
     // Exibir mensagem de sucesso
     alert('Vaga cadastrada com sucesso!');
     console.log(vagas)
+  }*/
+
+  btnSalvar.onclick = () => {
+    // Validar dados
+    if (!descricao || !tipo || !numero) {
+      alert('Preencha todos os campos!');
+      return;
+    }
+  
+    items.push({
+      descricao: descricao.value,
+      numero: numero.value,
+      tipo: tipo.value,
+    });
+  
+    setItensBD();
+  
+    loadItens();
+  
+    descricao.value = "";
+    numero.value = "";
+    tipo.value = "";
+  };
+
+  btnRegistrar.onclick = () => {
+    // Validar dados
+    if (!idVaga || !nomeCliente || !placa || !tipoVeiculo || !dataEntrada || !horaEntrada || !dataSaida || !horaSaida) {
+      alert('Preencha todos os campos!');
+      return;
+    }
+  
+    items.push({
+      idVaga: idRegistro.value,
+      nomeCliente: nome.value,
+      placa: placa.value,
+      tipoVeiculo: tipoVeiculo.value,
+      dataEntrada: dataEnt.value,
+      horaEntrada: horaEnt.value,
+      dataSaida: dataSai.value,
+      horaSaida: horaSai.value,
+    });
+  
+    setItensBD();
+  
+    loadItensRegistro();
+  
+    //descricao.value = "";
+   // numero.value = "";
+   // tipo.value = "";
+  };
+
+  function deleteItem(index) {
+    items.splice(index, 1);
+    setItensBD();
+    loadItens();
   }
 
-  function carregarVagas(vaga) {
-    // Obter referência à tabela
-    const tableVagas = document.getElementById('table-vagas');
+  function insertItem(item, index) {
+    let tr = document.createElement("tr");
   
-    // Criar linha da tabela
-    const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>${vaga.id}</td>
-      <td>${vaga.tipo}</td>
-      <td>${vaga.numero}</td>
-      <td>${vaga.descricao}</td>
+      <td>${item.descricao}</td>
+      <td>${item.numero}</td>
+      <td>${item.tipo}</td>
+      <td class="columnAction">
+        <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+      </td>
     `;
   
-    // Adicionar linha à tabela
-    tableVagas.tBodies[0].appendChild(tr);
+    tbody.appendChild(tr);
   }
+
+  function loadItens() {
+    items = getItensBD();
+    tbody.innerHTML = "";
+    items.forEach((item, index) => {
+      insertItem(item, index);
+    });
+  }
+
+  function loadItensRegistro() {
+    items = getItensBD();
+    tbody.innerHTML = "";
+    items.forEach((item, index) => {
+      insertItem(item, index);
+    });
+  }
+
+  const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) ?? [];
+  const setItensBD = () =>
+  localStorage.setItem("db_items", JSON.stringify(items));
+
+loadItens();
   
   

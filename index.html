@@ -7,35 +7,102 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="container">
-    <h1>Cadastro de Vagas de Estacionamento</h1>
-    <form id="form-vaga">
-      <input type="hidden" id="id" name="id">
-      <label for="tipo">Tipo de vaga:</label>
-      <select id="tipo" name="tipo">
-        <option value="carro">Carro</option>
-        <option value="carroidoso">Carro Idoso</option>
-        <option value="carropcd">Carro PCD</option>
-        <option value="moto">Moto</option>
-      </select>
-      <label for="numero">Número da vaga:</label>
-      <input type="text" id="numero" name="numero">
-      <label for="descricao">Descrição da vaga:</label>
-      <input type="text" id="descricao" name="descricao">      
-      <button type="submit" id="save" onclick="cadastrarVaga()">Salvar</button>
-    </form>
-    <table id="table-vagas">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Descrição</th>
-          <th>Tipo</th>
-          <th>Número</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
+  <main>
+    <div id="cadastro">
+      <h1>Cadastro de Vagas de Estacionamento</h1>
+      <form id="form-vaga">
+        <input type="hidden" id="id" name="id">
+        <div class="divTipo">
+          <label for="tipo">Tipo de vaga:</label>
+          <select id="tipo" name="tipo">
+            <option value="carro">Carro</option>
+            <option value="carroidoso">Carro Idoso</option>
+            <option value="carropcd">Carro PCD</option>
+            <option value="moto">Moto</option>
+          </select>
+        </div>
+        <div class="divNumero">
+          <label for="numero">Número da vaga:</label>
+          <input type="text" id="numero" name="numero">
+        </div>
+        <div class="divDescricao">
+          <label for="descricao">Descrição da vaga:</label>
+          <input type="text" id="descricao" name="descricao">
+        </div>
+       <button type="submit" id="btnSalvar">Salvar</button> 
+      </form>
+      <div class="divTable">
+        <table id="tableVagas">
+          <thead>
+            <tr>
+              <th>ID</th>
+            <th class="columnDescription">Descrição</th>
+            <th class="columnNumber">Número</th>
+            <th class="columnType">Tipo</th>
+            <th class="columnAction"></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>      
+    </div>
+    <div id="gerenciamento">
+      <h1>Gerenciamento de Vagas de Estacionamento</h1>
+      <form id="form-gerenciamento">
+        <input type="hidden" id="id" name="id">
+        <div class="divID">
+          <label for="idVaga">ID da vaga:</label>
+          <input type="text" id="idVaga" name="idVaga">
+        </div>
+        <div class="divCliente">
+          <label for="nomeCliente">Nome do cliente:</label>
+          <input type="text" id="nomeCliente" name="nomeCliente">
+        </div>
+        <div class="divPlaca">
+          <label for="placa">Placa do veículo:</label>
+          <input type="text" id="placa" name="placa">
+        </div>
+        <div class="divTipoVeiculo">
+          <label for="tipoVeiculo">Tipo do veículo:</label>
+          <input type="text" id="tipoVeiculo" name="tipoVeiculo">
+        </div>
+        <div class="divDataEntrada">
+          <label for="dataEntrada">Data de entrada:</label>
+          <input type="date" id="dataEntrada" name="dataEntrada">
+        </div>
+        <div class="divHoraEntrada">
+          <label for="horaEntrada">Hora de entrada:</label>
+          <input type="tipo" id="horaEntrada" name="horaEntrada">
+        </div>
+        <div class="divDataSaida">
+          <label for="dataSaida">Data de saída:</label>
+          <input type="date" id="dataSaida" name="dataSaida">
+        </div>
+        <div class="divHoraSaida">
+          <label for="horaSaida">Hora de saída:</label>
+          <input type="tipo" id="horaSaida" name="horaSaida">
+        </div>
+       <button type="submit" id="btnRegistrar">Registrar</button> 
+      </form>
+      <div class="divTableReserva">
+        <table id="tableReserva">
+          <thead>
+            <tr>
+              <th>ID</th>
+            <th class="columnNome">Nome</th>
+            <th class="columnPlaca">Placa</th>
+            <th class="columnDtentrada">Data entrada</th>
+            <th class="columnHrentrada">Hora entrada</th>
+            <th class="columnDtsaida">Data saída</th>
+            <th class="columnHrsaida">Hora saída</th>
+            <th class="columnAction"></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>      
+    </div>
+  </main>  
   <script src="script.js"></script>
 </body>
 </html>
