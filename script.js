@@ -1,5 +1,6 @@
     // Obter dados do formulário
-    const tbody = document.querySelector('tbody');
+    const tbodyV = document.querySelector('#tableVagas tbody');
+    const tbodyR = document.querySelector('#tableReserva tbody');
     const descricao = document.querySelector('#descricao');
     const tipo = document.querySelector('#tipo');
     const numero = document.querySelector('#numero');
@@ -13,67 +14,62 @@
     const dataSai = document.querySelector('#dataSaida');
     const horaSai = document.querySelector('#horaSaida');
     const btnRegistrar = document.querySelector('#btnRegistrar');
+    let idAtualVaga = 0;
+    let itemVaga;
+    let itemRegistro;
 
-    let items;
+    function gerarId() {
+      return ++idAtual;
+    }
 
-/*function cadastrarVaga() { 
+  btnSalvar.onclick = () => {   
     // Validar dados
     if (!descricao || !tipo || !numero) {
       alert('Preencha todos os campos!');
       return;
     }
-  
-    // Gerar ID autoincrement
-    ultimoId++;
-  
-    // Criar objeto vaga
-    const vaga = {
-      id: ultimoId,
-      descricao,
-      tipo,
-      numero,
-    };
-  
-    // Simular requisição para API para salvar vaga
-    // ...
-  
-    // Salvar vaga em localStorage
-    const vagas = JSON.parse(localStorage.getItem('vagas')) || [];
-    vagas.push(vaga);
-    localStorage.setItem('vagas', JSON.stringify(vagas));
-  
-    // Limpar formulário
-    formVaga.reset();
-  
-    // Carregar as vagas cadastradas
-    carregarVagas();
-  
-    // Exibir mensagem de sucesso
-    alert('Vaga cadastrada com sucesso!');
-    console.log(vagas)
-  }*/
 
-  btnSalvar.onclick = () => {
-    // Validar dados
-    if (!descricao || !tipo || !numero) {
-      alert('Preencha todos os campos!');
-      return;
-    }
-  
     items.push({
       descricao: descricao.value,
       numero: numero.value,
       tipo: tipo.value,
     });
   
-    setItensBD();
-  
-    loadItens();
+    setItensBDV();
+    loadItensVaga();
   
     descricao.value = "";
     numero.value = "";
     tipo.value = "";
   };
+
+  function deleteItem(index) {
+    items.splice(index, 1);
+    setItensBDV();
+    loadItensVaga();
+  }
+
+  function insertItemVaga(itemVaga, index) {
+    let tr = document.createElement("tr");
+  
+    tr.innerHTML = `
+      <td>${itemVaga.descricao}</td>
+      <td>${itemVaga.numero}</td>
+      <td>${itemVaga.tipo}</td>
+      <td class="columnAction">
+        <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+      </td>
+    `;
+      tbodyV.appendChild(tr);
+  }
+
+  function loadItensVaga() {
+    items = getItensBDV();
+    tbodyV.innerHTML = "";
+    items.forEach((itemVaga, index) => {
+      insertItemVaga(itemVaga, index);
+    });
+  }
 
   btnRegistrar.onclick = () => {
     // Validar dados
@@ -81,9 +77,9 @@
       alert('Preencha todos os campos!');
       return;
     }
-  
+     
     items.push({
-      idVaga: idRegistro.value,
+      //idVaga: gerarId(),
       nomeCliente: nome.value,
       placa: placa.value,
       tipoVeiculo: tipoVeiculo.value,
@@ -93,56 +89,51 @@
       horaSaida: horaSai.value,
     });
   
-    setItensBD();
+    setItensBDR();
   
     loadItensRegistro();
   
-    //descricao.value = "";
-   // numero.value = "";
-   // tipo.value = "";
+    nomeCliente.value = "";
+    tipoVeiculo.value = "";
+    dataEntrada.value = "";
+    dataEntrada.value = "";
+    horaEntrada.value = "";
+    dataSaida.value = "";
+    horaSaida.value = "";
   };
 
-  function deleteItem(index) {
-    items.splice(index, 1);
-    setItensBD();
-    loadItens();
-  }
-
-  function insertItem(item, index) {
+  function insertItemRegistro(itemRegistro, index) {
     let tr = document.createElement("tr");
   
     tr.innerHTML = `
-      <td>${item.descricao}</td>
-      <td>${item.numero}</td>
-      <td>${item.tipo}</td>
+      <td>${itemRegistro.idVaga}</td>
+      <td>${itemRegistro.placa}</td>
+      <td>${itemRegistro.tipoVeiculo}</td>
+      <td>${itemRegistro.dataEntrada}</td>
+      <td>${itemRegistro.horaEntrada}</td>
+      <td>${itemRegistro.dataSaida}</td>
+      <td>${itemRegistro.horaSaida}</td>
       <td class="columnAction">
         <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
       </td>
     `;
-  
-    tbody.appendChild(tr);
-  }
-
-  function loadItens() {
-    items = getItensBD();
-    tbody.innerHTML = "";
-    items.forEach((item, index) => {
-      insertItem(item, index);
-    });
+    tbodyR.appendChild(tr);
   }
 
   function loadItensRegistro() {
-    items = getItensBD();
-    tbody.innerHTML = "";
-    items.forEach((item, index) => {
-      insertItem(item, index);
+    items = getItensBDR();
+    tbodyR.innerHTML = "";
+    items.forEach((itemRegistro, index) => {
+      insertItemRegistro(itemRegistro, index);
     });
   }
 
-  const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) ?? [];
-  const setItensBD = () =>
-  localStorage.setItem("db_items", JSON.stringify(items));
+    const getItensBDV = () => JSON.parse(localStorage.getItem("db_vagas")) ?? [];
+    const setItensBDV = () => localStorage.setItem("db_vagas", JSON.stringify(items));
+    const getItensBDR = () => JSON.parse(localStorage.getItem("db_registros")) ?? [];
+    const setItensBDR = () => localStorage.setItem("db_registros", JSON.stringify(items));
 
-loadItens();
+  loadItensVaga();
+  loadItensRegistro();
   
   
