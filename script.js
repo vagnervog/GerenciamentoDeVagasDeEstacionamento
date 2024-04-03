@@ -34,6 +34,16 @@
       numero: numero.value,
       tipo: tipo.value,
     });
+    const disponivel = reservas.every(r => {
+      return !(r.numeroSala === reserva.numeroSala && r.data === reserva.data && r.horario === reserva.horario);
+    });
+  
+    if (!disponivel) {
+      alert('vaga não disponível nesse horário.');
+      return;
+    }
+  
+    reservas.push(reserva);
   
     setItensBDV();
     loadItensVaga();

@@ -63,7 +63,7 @@ function iniciarPrograma() {
     });
   
     if (!disponivel) {
-      alert('Sala não disponível nesse horário.');
+      alert('vaga não disponível nesse horário.');
       return;
     }
   
