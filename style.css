@@ -54,8 +54,11 @@ body {
   }
   
   .divNumero, .divDescricao, .divTipo {
+    background-color: #fefefe94;
+    border-radius: 15px;
+    /*
     display: flex;
-    flex-direction: column;
+    flex-direction: column;*/
   }
   
   #form-vaga button {
@@ -118,4 +121,7 @@ body {
     text-align: left;
   }
   
-  
+  .divTableReserva {
+    background-color: #fefefe94;
+    border-radius: 15px;
+}
