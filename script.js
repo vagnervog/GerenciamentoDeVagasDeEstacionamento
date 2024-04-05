@@ -1,4 +1,4 @@
-    // Obter dados do formulário
+    // Obter dados do formulário (variáveis)
     const tbodyV = document.querySelector('#tableVagas tbody');
     const tbodyR = document.querySelector('#tableReserva tbody');
     const descricao = document.querySelector('#descricao');
@@ -22,13 +22,15 @@
       return ++idAtual;
     }
 
-  btnSalvar.onclick = () => {   
-    // Validar dados
-    if (!descricao || !tipo || !numero) {
+    //função para o botão salvar - ação de click do mouse
+  btnSalvar.onclick = () => {  
+    // Validar dados - se campos estão preenchidos
+    if (!descricao.value || !tipo.value || !numero.value) {
       alert('Preencha todos os campos!');
       return;
     }
 
+    // adiciona os valores ao array
     items.push({
       descricao: descricao.value,
       numero: numero.value,
@@ -47,7 +49,8 @@
   
     setItensBDV();
     loadItensVaga();
-  
+
+    // limpa os campos
     descricao.value = "";
     numero.value = "";
     tipo.value = "";
@@ -59,6 +62,7 @@
     loadItensVaga();
   }
 
+  // seta os dados na tabela de vagas
   function insertItemVaga(itemVaga, index) {
     let tr = document.createElement("tr");
   
@@ -73,6 +77,7 @@
       tbodyV.appendChild(tr);
   }
 
+  // carrega os itens salvos no json
   function loadItensVaga() {
     items = getItensBDV();
     tbodyV.innerHTML = "";
@@ -81,13 +86,16 @@
     });
   }
 
+  //função para o botão registrar - ação de click do mouse 
   btnRegistrar.onclick = () => {
+
     // Validar dados
-    if (!idVaga || !nomeCliente || !placa || !tipoVeiculo || !dataEntrada || !horaEntrada || !dataSaida || !horaSaida) {
+    if (!idVaga.value || !nomeCliente.value || !placa.value || !tipoVeiculo.value || !dataEntrada.value || !horaEntrada.value || !dataSaida.value || !horaSaida.value) {
       alert('Preencha todos os campos!');
       return;
     }
-     
+    
+    // adiciona os valores ao array
     items.push({
       //idVaga: gerarId(),
       nomeCliente: nome.value,
@@ -102,7 +110,7 @@
     setItensBDR();
   
     loadItensRegistro();
-  
+    // limpa os campos
     nomeCliente.value = "";
     tipoVeiculo.value = "";
     dataEntrada.value = "";
@@ -112,6 +120,7 @@
     horaSaida.value = "";
   };
 
+  // insere os dados na tabela de registros
   function insertItemRegistro(itemRegistro, index) {
     let tr = document.createElement("tr");
   
@@ -130,6 +139,7 @@
     tbodyR.appendChild(tr);
   }
 
+  // carrega os dados do json
   function loadItensRegistro() {
     items = getItensBDR();
     tbodyR.innerHTML = "";
@@ -137,7 +147,7 @@
       insertItemRegistro(itemRegistro, index);
     });
   }
-
+    // armazena os dados no localStorage atraves de um json
     const getItensBDV = () => JSON.parse(localStorage.getItem("db_vagas")) ?? [];
     const setItensBDV = () => localStorage.setItem("db_vagas", JSON.stringify(items));
     const getItensBDR = () => JSON.parse(localStorage.getItem("db_registros")) ?? [];
