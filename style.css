@@ -103,7 +103,7 @@ body {
   }
   
   table td a:hover {
-    background-color: #dddddd18;
+    background-color: #dddddd13;
   }
 
   .columnNumber {
@@ -121,7 +121,7 @@ body {
     text-align: left;
   }
   
-  .divTableReserva {
-    background-color: #fefefe94;
+  .divTableReserva, .divTable {
+    background-color: #fefefe62;
     border-radius: 15px;
 }
