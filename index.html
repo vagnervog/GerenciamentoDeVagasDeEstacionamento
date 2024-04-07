@@ -10,7 +10,7 @@
   <main>
     <div div style = 'text-align: left' id="cadastro">
       <h1>Cadastro de Vagas de Estacionamento</h1>
-      <form id="form-vaga">
+      <form id="formVaga">
         <input type="hidden" id="id" name="id">
         <div class="divTipo">
           <label for="tipo">Tipo de vaga:</label>
@@ -28,24 +28,20 @@
         <div class="divDescricao">
           <label for="descricao">Descrição da vaga:</label>
           <!--acrecentar a opção de oferecer as opçoes de vaga(coberta, normal, etc...)-->
-          <select id="tipo" name="tipo">
+          <select id="descricao" name="descricao">
             <option value="VIP">VIP</option>
             <option value="Normal">Normal</option>
             <option value="Coberta">Coberta</option>
           </select>
-          
-          <input type="text" id="descricao" name="descricao">
-        </div>
        <button type="submit" id="btnSalvar">Salvar</button> 
       </form>
       <div class="divTable">
-        <table id="tableVagas">
+        <table id="tbodyVagas">
           <thead>
-            <tr class= "vagas">
-            <!--<th class="columnID">ID</th>-->
-            <th class="columnDescription">Descrição</th>
-            <th class="columnNumber">Número</th>
-            <th class="columnType">Tipo</th>
+            <tr class= "tbodyVagas">
+            <th class="columnNumero">Número</th>
+            <th class="columnTipo">Tipo</th>
+            <th class="columnDescricao">Descrição</th>
             <th class="columnAction"></th>
             </tr>
           </thead>
@@ -55,7 +51,7 @@
     </div>
     <div div style = 'text-align: left' id="gerenciamento">
       <h1>Gerenciamento de Vagas de Estacionamento</h1>
-      <form id="form-gerenciamento">
+      <form id="formGerenciamento">
         <input type="hidden" id="id" name="id">
         <div class="divID">
           <label for="idVaga">ID da vaga:</label>
@@ -77,31 +73,21 @@
           <label for="dataEntrada">Data de entrada:</label>
           <input type="date" id="dataEntrada" name="dataEntrada">
         </div>
-        <div class="divHoraEntrada">
-          <label for="horaEntrada">Hora de entrada:</label>
-          <input type="tipo" id="horaEntrada" name="horaEntrada">
-        </div>
         <div class="divDataSaida">
           <label for="dataSaida">Data de saída:</label>
           <input type="date" id="dataSaida" name="dataSaida">
-        </div>
-        <div class="divHoraSaida">
-          <label for="horaSaida">Hora de saída:</label>
-          <input type="tipo" id="horaSaida" name="horaSaida">
         </div>
        <button type="submit" id="btnRegistrar">Registrar</button> 
       </form>
       <div class="divTableReserva">
         <table id="tableReserva">
           <thead>
-            <tr class= "reservas">
+            <tr class= "tableReserva">
               <th>ID</th>
             <th class="columnNome">Nome</th>
             <th class="columnPlaca">Placa</th>
             <th class="columnDtentrada">Data entrada</th>
-            <th class="columnHrentrada">Hora entrada</th>
             <th class="columnDtsaida">Data saída</th>
-            <th class="columnHrsaida">Hora saída</th>
             <th class="columnAction"></th>
             </tr>
           </thead>

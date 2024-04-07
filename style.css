@@ -25,7 +25,7 @@ body {
     background: #bd34342a;
   }
 
-  #tableVagas tr:hover {
+  #tbVagas tr:hover {
     background: #5531313b;
   }
 
@@ -61,7 +61,17 @@ body {
     flex-direction: column;*/
   }
   
-  #form-vaga button {
+  #formVaga button {
+    background-color: #d2612cc7;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 0 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 34px;
+  }
+
+  #formGerenciamento button {
     background-color: #d2612cc7;
     color: rgb(255, 255, 255);
     border: none;
@@ -106,13 +116,18 @@ body {
     background-color: #dddddd13;
   }
 
-  .columnNumber {
-    width: 80px;
+  .columnNumero {
+    width: 20px;
     text-align: left;
   }
   
-  .columnType {
-    width: 80px;
+  .columnTipo {
+    width: 40px;
+    text-align: left;
+  }
+
+  .columnDescricao {
+    width: 40px;
     text-align: left;
   }
 
