@@ -1,27 +1,20 @@
     // Obter dados do formulário (variáveis)
-    const tbodyV = document.querySelector('#tbodyVagas tbody');
+    const tbodyV = document.querySelector('#tableVagas tbody');
     const tbodyR = document.querySelector('#tableReserva tbody');
     const descricao = document.querySelector('#descricao');
     const tipo = document.querySelector('#tipo');
     const numero = document.querySelector('#numero');
     const btnSalvar = document.querySelector('#btnSalvar');
-    const idRegistro = document.querySelector('#idVaga');
+    const idRegistro = idAtualVaga = 1;
     const nome = document.querySelector('#nomeCliente');
     const placa = document.querySelector('#placa');
     const tipoVeiculo = document.querySelector('#tipoVeiculo');
     const dataEnt = document.querySelector('#dataEntrada');
     const dataSai = document.querySelector('#dataSaida');
     const btnRegistrar = document.querySelector('#btnRegistrar');
-    let idAtualVaga = 0;
-    let itemVaga;
-    let itemRegistro;
-
-    function gerarId() {
-      return ++idAtual;
-    }
-
+    
     //função para o botão salvar - ação de click do mouse
-  btnSalvar.onclick = () => {  
+    btnSalvar.onclick = () => {  
     // Validar dados - se campos estão preenchidos
     if (!descricao.value || !tipo.value || !numero.value) {
       alert('Preencha todos os campos!');
@@ -59,19 +52,18 @@
 
   // seta os dados na tabela de vagas
   function insertItemVaga(items, index) {
-    let tbody = document.createElement("tbody");
-        // Cria a tabela HTML
-    tbody.innerHTML = `
-      <td>${items.descricao}</td>
+    let tr = document.createElement("tr");
+  // Cria a tabela HTML
+    tr.innerHTML = `
       <td>${items.numero}</td>
       <td>${items.tipo}</td>
-      <td class="columnAction">
-        <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+      <td>${items.descricao}</td>
+      <td>
+        <button onclick="deleteItem(${index})"><i class="fa-solid fa-trash-can"></i></button>
       </td>
     `;
-      tbodyV.appendChild(tbody);
+      tbodyV.appendChild(tr);
   }
-
   
   // carrega os itens salvos no json
   function loadItensVaga() {
@@ -85,20 +77,19 @@
   //função para o botão registrar - ação de click do mouse 
   btnRegistrar.onclick = () => {
     // Validar dados
-    if (!idVaga.value || !nomeCliente.value || !placa.value || !tipoVeiculo.value || !dataEntrada.value || !horaEntrada.value || !dataSaida.value || !horaSaida.value) {
+    if (!idVaga.value || !nomeCliente.value || !placa.value || !tipoVeiculo.value || !dataEntrada.value || !dataSaida.value) {
       alert('Preencha todos os campos!');
       return;
     }    
     // adiciona os valores ao array
     itemsr.push({
-      idVaga: gerarId(),
-      nomeCliente: nome.value,
+      idVaga: idAtualVaga++,
+      nome: nomeCliente.value,
       placa: placa.value,
       tipoVeiculo: tipoVeiculo.value,
       dataEntrada: dataEnt.value,
       dataSaida: dataSai.value
-    });
-  
+    });  
     setItensBDR();  
     loadItensRegistro();
     limparCamposRegistros();
@@ -116,15 +107,15 @@
   // insere os dados na tabela de registros
   function insertItemRegistro(itemsr, index) {
     let tr = document.createElement("tr");
-  
-    tr.innerHTML = `
+      tr.innerHTML = `
       <td>${itemsr.idVaga}</td>
+      <td>${itemsr.nome}</td>
       <td>${itemsr.placa}</td>
       <td>${itemsr.tipoVeiculo}</td>
       <td>${itemsr.dataEntrada}</td>
       <td>${itemsr.dataSaida}</td>
-      <td class="columnAction">
-        <button onclick="deleteItemRegistro(${index})"><i class='bx bx-trash'></i></button>
+      <td>
+        <button onclick="deleteItemRegistro(${index})"><i class="fa-solid fa-trash-can"></i></button>
       </td>
     `;
     tbodyR.appendChild(tr);

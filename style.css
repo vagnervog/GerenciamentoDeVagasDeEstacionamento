@@ -1,12 +1,11 @@
 * {
   margin: 3px;
-  margin-left: 35px;
-  margin-top: 1px;
-  /*margin-bottom: 1.5px;*/
-  padding: 0;
+  margin-left: 20px;
+  margin-top: 5px;
+  padding: 1px;
   box-sizing: border-box;
   font-family: 'poppins', sans-serif;
-  outline: none;
+  outline: none;  
 }
 
 body {
@@ -16,21 +15,18 @@ body {
   background-repeat: no-repeat; 
   background-position: center center;
   background-attachment: fixed;
-  /*behavior: url(csshover3.htc);
-  display: flex;
-  justify-content: left;*/
   }
 
-  #tableReservas tr:hover {
+  #tableReserva tr:hover {
     background: #bd34342a;
   }
 
-  #tbVagas tr:hover {
-    background: #5531313b;
+  #tableVagas tr:hover {
+    background: #bd34342a;
   }
 
   main {
-    max-width: 550px;
+    max-width: 600px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -44,99 +40,60 @@ body {
   width: 100%;
   justify-content: left;
   flex-wrap: wrap;
- /* background: #F0FFFF;*/
   }
 
+  input, select{
+    border-radius: 5px;
+    display: flex;
+    cursor: pointer;
+  }
  
+  input:hover, select:hover{
+    background: #bd34342a;
+  }
 
   h1 {
-    text-align: left;
-  }
-  
-  .divNumero, .divDescricao, .divTipo {
-    background-color: #fefefe94;
-    border-radius: 15px;
-    /*
-    display: flex;
-    flex-direction: column;*/
-  }
-  
-  #formVaga button {
-    background-color: #d2612cc7;
-    color: rgb(255, 255, 255);
-    border: none;
-    padding: 0 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 34px;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
   }
 
-  #formGerenciamento button {
+  #tituloGerenciamento{
+    text-align: center;
+  }
+
+  button {
     background-color: #d2612cc7;
     color: rgb(255, 255, 255);
     border: none;
     padding: 0 15px;
     border-radius: 5px;
     cursor: pointer;
-    height: 34px;
+    height: 24px;
+    width: auto;
+    margin-left: 40px;
   }
   
   table {
     width: 100%;
-    display: flex;
     justify-content: left;
-    /*float: left !important;*/
   }
   
-  table th, table td {
-    width: 98%;
-    padding: 20px 0;
+   table td {
+    text-align: center;
+    width: 20%;
+    padding: 10px 0;
     border-radius: 5px;
-  }
-  
-  table th {
-    text-align: start;
-    border-bottom: inset;
     padding-bottom: 5px;
   }
   
-  table td:last-child {
-    text-align: left;
+  table th {
+    text-align: center;
+    border-bottom: inset;
+    padding-bottom: 5px;
+    border-radius: 5px;
   }
-  
-  table td a {
-    margin: 0 5px;
-    padding: 5px;
-    border: 1px solid #cccccc09;
-    text-decoration: none;
-    color: #000;
-  }
-  
-  table td a:hover {
-    background-color: #dddddd13;
-  }
-
-  .columnNumero {
-    width: 20px;
-    text-align: left;
-  }
-  
-  .columnTipo {
-    width: 40px;
-    text-align: left;
-  }
-
-  .columnDescricao {
-    width: 40px;
-    text-align: left;
-  }
-
-  .columnAction {
-    width: 40px;
-    text-align: left;
-  }
-  
-  .divTableReserva, .divTable {
-    background-color: #fefefe62;
+   
+  #cadastro, #gerenciamento {
+    background-color: #fefefe85;
     border-radius: 15px;
-}
+  }

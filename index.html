@@ -5,20 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Vagas</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="fontawesome/css/all.min.css">
 </head>
 <body>
   <main>
-    <div div style = 'text-align: left' id="cadastro">
+    <div id="cadastro">
       <h1>Cadastro de Vagas de Estacionamento</h1>
       <form id="formVaga">
         <input type="hidden" id="id" name="id">
         <div class="divTipo">
           <label for="tipo">Tipo de vaga:</label>
           <select id="tipo" name="tipo">
-            <option value="carro">Carro</option>
-            <option value="carroidoso">Carro Idoso</option>
-            <option value="carropcd">Carro PCD</option>
-            <option value="moto">Moto</option>
+            <option value="Carro">Carro</option>
+            <option value="Carro Idoso">Carro Idoso</option>
+            <option value="Carro PCD">Carro PCD</option>
+            <option value="Moto">Moto</option>
           </select>
         </div>
         <div class="divNumero">
@@ -33,28 +34,29 @@
             <option value="Normal">Normal</option>
             <option value="Coberta">Coberta</option>
           </select>
-       <button type="submit" id="btnSalvar">Salvar</button> 
+        </div>
+      <button type="submit" id="btnSalvar">Salvar</button> 
       </form>
       <div class="divTable">
-        <table id="tbodyVagas">
+        <table id="tableVagas">
           <thead>
-            <tr class= "tbodyVagas">
+            <tr class="tableVagas">
             <th class="columnNumero">Número</th>
             <th class="columnTipo">Tipo</th>
             <th class="columnDescricao">Descrição</th>
-            <th class="columnAction"></th>
+            <th class="columnActionVagas">Ações</th>
             </tr>
           </thead>
           <tbody></tbody>
         </table>
       </div>      
     </div>
-    <div div style = 'text-align: left' id="gerenciamento">
-      <h1>Gerenciamento de Vagas de Estacionamento</h1>
+    <div id="gerenciamento">
+      <h1 id="tituloGerenciamento">Gerenciamento de Vagas de Estacionamento</h1>
       <form id="formGerenciamento">
         <input type="hidden" id="id" name="id">
         <div class="divID">
-          <label for="idVaga">ID da vaga:</label>
+          <label for="idVaga">Numero da vaga:</label>
           <input type="text" id="idVaga" name="idVaga">
         </div>
         <div class="divCliente">
@@ -83,12 +85,13 @@
         <table id="tableReserva">
           <thead>
             <tr class= "tableReserva">
-              <th>ID</th>
+            <th>ID</th>
             <th class="columnNome">Nome</th>
             <th class="columnPlaca">Placa</th>
+            <th class="columnPlaca">Tipo</th>
             <th class="columnDtentrada">Data entrada</th>
             <th class="columnDtsaida">Data saída</th>
-            <th class="columnAction"></th>
+            <th class="columnActionGerenciamento">Ações</th>
             </tr>
           </thead>
           <tbody></tbody>
