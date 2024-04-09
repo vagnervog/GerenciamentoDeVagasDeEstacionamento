@@ -22,14 +22,14 @@ Permitir ao usuário fazer a reserva de uma vaga:
 - Ao escolher um tipo, o sistema apresenta as vagas disponíveis – pré cadastradas e que não estão ocupadas;
 - Escolher uma vaga - inserir o ID (da vaga que o usuário escolheu) num campo específico;
 - Inserir ID da vaga, nome, placa e tipo de veículo num campo específico;
-- Informar a data e hora de entrada e date e hora de saída em campo específico, gravar – ao gravar o sistema deve exibir o número da reserva – um ID;
+- Informar a data de entrada e data de saída em campo específico, gravar – ao gravar o sistema deve exibir o número da reserva – um ID;
 
 GERENCIAMENTO DE VAGAS
 
 Permitir ao usuário gerenciar as vagas:
 - Sistema lista todas as vagas ocupadas;
-- Sistema deve possibilitar buscar uma reserva de vaga pelo ID (informado pelo sistema ao gravar);
-- Acessar as informações do cliente daquela vaga – o sistema busca os dados através do ID informado pelo usuário;
+- Sistema deve possibilitar buscar uma reserva de vaga pelo ID (informado pelo sistema ao gravar); *ESTA FUNCIONALIDADE AINDA NÃO ESTÁ DIPONÍVEL*
+- Acessar as informações do cliente daquela vaga – o sistema busca os dados através do ID informado pelo usuário; *ESTA FUNCIONALIDADE AINDA NÃO ESTÁ DISPONÍVEL*
 - Editar a reserva de vaga – o usuário poderá alterar as informações dos campos: data, hora e / ou vaga (ID da vaga);
 - Excluir a reserva – buscar a reserva e deletar;
 
