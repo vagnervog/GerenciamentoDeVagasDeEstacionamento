@@ -13,14 +13,14 @@
     const dataSai = document.querySelector('#dataSaida');
     const btnRegistrar = document.querySelector('#btnRegistrar');
     
-    //função para o botão salvar - ação de click do mouse
+    // Função para o botão salvar - ação de click do mouse
     btnSalvar.onclick = () => {  
     // Validar dados - se campos estão preenchidos
     if (!descricao.value || !tipo.value || !numero.value) {
       alert('Preencha todos os campos!');
       return;
     }
-    // adiciona os valores ao array
+    // Adiciona os valores ao array
     items.push({
       descricao: descricao.value,
       numero: numero.value,
@@ -32,13 +32,14 @@
     alert("Vaga cadastrada com sucesso!");
   };
 
+  // Limpa os campos
   function limparCamposVagas() {
-    // limpa os campos
     descricao.value = "";
     numero.value = "";
     tipo.value = "";
   }
 
+  // Deleta a vaga 
   function deleteItem(index) {
     if (confirm("Você deseja excluir esta vaga?")){
     items.splice(index, 1);
@@ -47,6 +48,7 @@
     } 
   }
 
+  // Deleta a reserva
   function deleteItemRegistro(index) {
     if (confirm("Você deseja excluir esta reserva?")){
     itemsr.splice(index, 1);
@@ -55,7 +57,7 @@
     }
   }
 
-  // seta os dados na tabela de vagas
+  // Seta os dados na tabela de vagas
   function insertItemVaga(items, index) {
     let tr = document.createElement("tr");
   // Cria a tabela HTML
@@ -70,7 +72,7 @@
       tbodyV.appendChild(tr);
   }
   
-  // carrega os itens salvos no json
+  // Carrega os itens salvos no json
   function loadItensVaga() {
     items = getItensBDV();
     tbodyV.innerHTML = "";
@@ -79,16 +81,30 @@
     });
   }
 
-  //função para o botão registrar - ação de click do mouse 
+  function gerarIdVaga() {
+    // Armazena o valor atual do ID na variável "idAtualVaga"
+    let idAtualVaga = parseInt(localStorage.getItem("ultimoIdVaga")) || 0;
+  
+    // Incrementa o valor da variável "idAtualVaga"
+    idAtualVaga++;
+  
+    // Salva o novo valor do ID no localStorage
+    localStorage.setItem("ultimoIdVaga", idAtualVaga);
+  
+    // Retorna o novo valor do ID
+    return idAtualVaga;
+  }
+
+  // Função para o botão registrar - ação de click do mouse 
   btnRegistrar.onclick = () => {
     // Validar dados
     if (!idVaga.value || !nomeCliente.value || !placa.value || !tipoVeiculo.value || !dataEntrada.value || !dataSaida.value) {
       alert('Preencha todos os campos!');
       return;
     }    
-    // adiciona os valores ao array
+    // Adiciona os valores ao array
     itemsr.push({
-      idVaga: idAtualVaga++,
+      idVaga: gerarIdVaga(),
       nome: nomeCliente.value,
       placa: placa.value,
       tipoVeiculo: tipoVeiculo.value,
@@ -102,7 +118,7 @@
   };
 
   function limparCamposRegistros(){
-        // limpa os campos
+        // Limpa os campos
         nomeCliente.value = "";
         tipoVeiculo.value = "";
         dataEntrada.value = "";
@@ -110,7 +126,7 @@
         dataSaida.value = "";
   }
 
-  // insere os dados na tabela de registros
+  // Insere os dados na tabela de registros
   function insertItemRegistro(itemsr, index) {
     let tr = document.createElement("tr");
       tr.innerHTML = `
@@ -127,7 +143,7 @@
     tbodyR.appendChild(tr);
   }
 
-  // carrega os dados do json
+  // Carrega os dados do json
   function loadItensRegistro() {
     itemsr = getItensBDR();
     tbodyR.innerHTML = "";
@@ -135,7 +151,7 @@
       insertItemRegistro(itemsr, index);
     });
   }
-    // armazena os dados no localStorage atraves de um json
+    // Armazena os dados no localStorage atraves de um json
     const getItensBDV = () => JSON.parse(localStorage.getItem("db_vagas")) ?? [];
     const setItensBDV = () => localStorage.setItem("db_vagas", JSON.stringify(items));
     const getItensBDR = () => JSON.parse(localStorage.getItem("db_registros")) ?? [];

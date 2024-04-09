@@ -13,6 +13,10 @@
       <h1>Cadastro de Vagas de Estacionamento</h1>
       <form id="formVaga">
         <input type="hidden" id="id" name="id">
+        <div class="divNumero">
+          <label for="numero">Número da vaga:</label>
+          <input type="text" id="numero" name="numero">
+        </div>
         <div class="divTipo">
           <label for="tipo">Tipo de vaga:</label>
           <select id="tipo" name="tipo">
@@ -23,13 +27,8 @@
             <option value="Moto">Moto</option>
           </select>
         </div>
-        <div class="divNumero">
-          <label for="numero">Número da vaga:</label>
-          <input type="text" id="numero" name="numero">
-        </div>
         <div class="divDescricao">
           <label for="descricao">Descrição da vaga:</label>
-          <!--acrecentar a opção de oferecer as opçoes de vaga(coberta, normal, etc...)-->
           <select id="descricao" name="descricao">
             <option></option>
             <option value="VIP">VIP</option>

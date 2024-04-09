@@ -21,6 +21,11 @@ body {
     background: #bd34342a;
   }
 
+  #tableVagas, #tableReserva {
+    width: 500px;
+  
+  }
+
   #tableVagas tr:hover {
     background: #bd34342a;
   }
@@ -43,6 +48,7 @@ body {
   }
 
   input, select{
+    width:150px;
     border-style:groove;
     border-radius: 5px;
     display: flex;
