@@ -29,6 +29,7 @@
     setItensBDV();
     loadItensVaga();
     limparCamposVagas();
+    alert("Vaga cadastrada com sucesso!");
   };
 
   function limparCamposVagas() {
@@ -39,15 +40,19 @@
   }
 
   function deleteItem(index) {
+    if (confirm("Você deseja excluir esta vaga?")){
     items.splice(index, 1);
     setItensBDV();
     loadItensVaga();
+    } 
   }
 
   function deleteItemRegistro(index) {
+    if (confirm("Você deseja excluir esta reserva?")){
     itemsr.splice(index, 1);
     setItensBDR();
     loadItensRegistro();
+    }
   }
 
   // seta os dados na tabela de vagas
@@ -93,6 +98,7 @@
     setItensBDR();  
     loadItensRegistro();
     limparCamposRegistros();
+    alert("Reserva cadastrada com sucesso!");
   };
 
   function limparCamposRegistros(){

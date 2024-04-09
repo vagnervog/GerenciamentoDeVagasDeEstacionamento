@@ -43,6 +43,7 @@ body {
   }
 
   input, select{
+    border-style:groove;
     border-radius: 5px;
     display: flex;
     cursor: pointer;
