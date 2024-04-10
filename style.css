@@ -15,20 +15,19 @@ body {
   background-repeat: no-repeat; 
   background-position: center center;
   background-attachment: fixed;
-  }
+}
 
   #tableReserva tr:hover {
     background: #bd34342a;
-  }
+}
 
   #tableVagas, #tableReserva {
     width: 500px;
-  
   }
 
   #tableVagas tr:hover {
     background: #bd34342a;
-  }
+}
 
   main {
     max-width: 600px;
@@ -36,7 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: left;
-  }
+}
   
   #cadastro, #gerenciamento {
   display: flex;
@@ -45,28 +44,28 @@ body {
   width: 100%;
   justify-content: left;
   flex-wrap: wrap;
-  }
+}
 
-  input, select{
+  input, select {
     width:150px;
     border-style:groove;
     border-radius: 5px;
     display: flex;
     cursor: pointer;
-  }
+}
  
-  input:hover, select:hover{
+  input:hover, select:hover {
     background: #bd34342a;
-  }
+}
 
   h1 {
     text-align: center;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-  }
+}
 
-  #tituloGerenciamento{
+  #tituloGerenciamento {
     text-align: center;
-  }
+}
 
   button {
     background-color: #d2612cc7;
@@ -78,12 +77,12 @@ body {
     height: 24px;
     width: auto;
     margin-left: 40px;
-  }
+}
   
   table {
     width: 100%;
     justify-content: left;
-  }
+}
   
    table td {
     text-align: center;
@@ -91,16 +90,16 @@ body {
     padding: 10px 0;
     border-radius: 5px;
     padding-bottom: 5px;
-  }
+}
   
   table th {
     text-align: center;
     border-bottom: inset;
     padding-bottom: 5px;
     border-radius: 5px;
-  }
+}
    
   #cadastro, #gerenciamento {
     background-color: #fefefe85;
     border-radius: 15px;
-  }
+}

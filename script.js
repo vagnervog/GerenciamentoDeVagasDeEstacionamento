@@ -1,4 +1,4 @@
-    // Obter dados do formulário (variáveis)
+  // Obter dados do formulário (variáveis)
     const tbodyV = document.querySelector('#tableVagas tbody');
     const tbodyR = document.querySelector('#tableReserva tbody');
     const descricao = document.querySelector('#descricao');
@@ -13,14 +13,17 @@
     const dataSai = document.querySelector('#dataSaida');
     const btnRegistrar = document.querySelector('#btnRegistrar');
     
-    // Função para o botão salvar - ação de click do mouse
+
+  //FUNÇÕES FORMULÁRIO 'CADASTRO DE VAGAS DE ESTACIONAMENTO'
+
+  // Função para o botão salvar - ação de click do mouse
     btnSalvar.onclick = () => {  
-    // Validar dados - se campos estão preenchidos
+  // Validar dados - se campos estão preenchidos
     if (!descricao.value || !tipo.value || !numero.value) {
       alert('Preencha todos os campos!');
       return;
     }
-    // Adiciona os valores ao array
+  // Adiciona os valores ao array
     items.push({
       descricao: descricao.value,
       numero: numero.value,
@@ -48,15 +51,6 @@
     } 
   }
 
-  // Deleta a reserva
-  function deleteItemRegistro(index) {
-    if (confirm("Você deseja excluir esta reserva?")){
-    itemsr.splice(index, 1);
-    setItensBDR();
-    loadItensRegistro();
-    }
-  }
-
   // Seta os dados na tabela de vagas
   function insertItemVaga(items, index) {
     let tr = document.createElement("tr");
@@ -72,7 +66,7 @@
       tbodyV.appendChild(tr);
   }
   
-  // Carrega os itens salvos no json
+  // Carrega na tabela os itens salvos no json
   function loadItensVaga() {
     items = getItensBDV();
     tbodyV.innerHTML = "";
@@ -81,28 +75,31 @@
     });
   }
 
+  // Função para gerar ID auto increment para as reservas
   function gerarIdVaga() {
-    // Armazena o valor atual do ID na variável "idAtualVaga"
+  // Armazena o valor atual do ID na variável "idAtualVaga"
     let idAtualVaga = parseInt(localStorage.getItem("ultimoIdVaga")) || 0;
   
-    // Incrementa o valor da variável "idAtualVaga"
+  // Incrementa o valor da variável "idAtualVaga"
     idAtualVaga++;
   
-    // Salva o novo valor do ID no localStorage
+  // Salva o novo valor do ID no localStorage
     localStorage.setItem("ultimoIdVaga", idAtualVaga);
   
-    // Retorna o novo valor do ID
+  // Retorna o novo valor do ID
     return idAtualVaga;
   }
 
+  //FUNÇÕES FORMULÁRIO 'GERENCIAMENTO DE VAGAS DE ESTACINAMENTO'
+
   // Função para o botão registrar - ação de click do mouse 
-  btnRegistrar.onclick = () => {
-    // Validar dados
+    btnRegistrar.onclick = () => {
+  // Validar dados
     if (!idVaga.value || !nomeCliente.value || !placa.value || !tipoVeiculo.value || !dataEntrada.value || !dataSaida.value) {
-      alert('Preencha todos os campos!');
-      return;
+    alert('Preencha todos os campos!');
+    return;
     }    
-    // Adiciona os valores ao array
+  // Adiciona os valores ao array
     itemsr.push({
       idVaga: gerarIdVaga(),
       nome: nomeCliente.value,
@@ -118,12 +115,12 @@
   };
 
   function limparCamposRegistros(){
-        // Limpa os campos
-        nomeCliente.value = "";
-        tipoVeiculo.value = "";
-        dataEntrada.value = "";
-        dataEntrada.value = "";
-        dataSaida.value = "";
+  // Limpa os campos
+      nomeCliente.value = "";
+      tipoVeiculo.value = "";
+      dataEntrada.value = "";
+      dataEntrada.value = "";
+      dataSaida.value = "";
   }
 
   // Insere os dados na tabela de registros
@@ -143,7 +140,7 @@
     tbodyR.appendChild(tr);
   }
 
-  // Carrega os dados do json
+  // Carrega na tabela os dados do json
   function loadItensRegistro() {
     itemsr = getItensBDR();
     tbodyR.innerHTML = "";
@@ -151,12 +148,23 @@
       insertItemRegistro(itemsr, index);
     });
   }
-    // Armazena os dados no localStorage atraves de um json
+
+  // Deleta a reserva
+  function deleteItemRegistro(index) {
+    if (confirm("Você deseja excluir esta reserva?")){
+    itemsr.splice(index, 1);
+    setItensBDR();
+    loadItensRegistro();
+    }
+  }
+
+  // Armazena os dados no localStorage atraves de um json
     const getItensBDV = () => JSON.parse(localStorage.getItem("db_vagas")) ?? [];
     const setItensBDV = () => localStorage.setItem("db_vagas", JSON.stringify(items));
     const getItensBDR = () => JSON.parse(localStorage.getItem("db_registros")) ?? [];
     const setItensBDR = () => localStorage.setItem("db_registros", JSON.stringify(itemsr));
 
+  //Inicia a tela carregando os dados armazenados no localStorage nas tabelas
   loadItensVaga();
   loadItensRegistro();
   
