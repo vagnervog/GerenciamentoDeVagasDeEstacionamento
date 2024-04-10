@@ -101,5 +101,31 @@
     </div>
   </main>  
   <script src="script.js"></script>
+  <main>
+    <div id="editarVagas">
+      <h1>Gerenciar vagas por ID</h1>
+      <form id="formVaga">
+        <input type="hidden" id="id" name="id">
+        <div class="divNumero">
+          <label for="id">ID da vaga:</label>
+          <input type="text" id="numero" name="numero">
+        </div>
+        <button type="submit" id="btnSalvar">Editar</button>
+        <div class="divTableReserva">
+          <table id="tableReserva">
+            <thead>
+              <tr class= "tableReserva">
+              <th>ID</th>
+              <th class="columnNome">Nome</th>
+              <th class="columnPlaca">Placa</th>
+              <th class="columnPlaca">Tipo</th>
+              <th class="columnDtentrada">Data entrada</th>
+              <th class="columnDtsaida">Data saída</th>
+              <th class="columnActionGerenciamento">Ações</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>  
 </body>
 </html>

@@ -84,7 +84,7 @@ body {
     justify-content: left;
 }
   
-   table td {
+  table td {
     text-align: center;
     width: 20%;
     padding: 10px 0;
@@ -99,7 +99,8 @@ body {
     border-radius: 5px;
 }
    
-  #cadastro, #gerenciamento {
+  #cadastro, #gerenciamento, #editarVagas {
     background-color: #fefefe85;
     border-radius: 15px;
+    width: 100%;
 }
