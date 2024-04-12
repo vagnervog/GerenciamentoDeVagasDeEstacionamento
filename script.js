@@ -158,13 +158,13 @@ function buscarItemPorId() {
     alert(`Reserva não encontrada!`);
     return;
   }
-  console.log("Registro encontrado:", registroEncontrado); 
+
   alert(`Reserva encontrada!`);
 
-  // Cria a linha da tabela HTML
-  const linha = document.createElement('tr');
+  // Limpa o conteúdo anterior da tabela de busca
+  tbodyB.innerHTML = "";
 
-  // Adiciona as células da tabela com os dados do registro
+  const linha = document.createElement('tr');
   for (const propriedade of Object.keys(registroEncontrado)) {
     const valor = registroEncontrado[propriedade];
     const celula = document.createElement('td');
@@ -172,17 +172,17 @@ function buscarItemPorId() {
     linha.appendChild(celula);
   }
 
-  // Obtém a referência para o corpo da tabela (tbody)
-  //const tbody = document.querySelector('tbody');
-
-  // Insere a linha na tabela
   tbodyB.appendChild(linha);  
 }
 
 // Executa a função a partir do momento que o botão for clicado
-btnBuscar.onclick = () => {
+btnBuscar.onclick = (event) => {
+  event.preventDefault(); // Impede a recarga da página
   buscarItemPorId();
+  //buscarItemPorId();
 };
+
+
 
 // Deleta a reserva
 function deleteItemRegistro(index) {
