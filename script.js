@@ -14,7 +14,6 @@ const dataSai = document.querySelector('#dataSaida');
 const btnRegistrar = document.querySelector('#btnRegistrar');
 const btnBuscar = document.querySelector('#btnBuscar');
 
-
 //FUNÇÕES FORMULÁRIO 'CADASTRO DE VAGAS DE ESTACIONAMENTO'
 
 // Função para o botão salvar - ação de click do mouse
@@ -151,19 +150,15 @@ function loadItensRegistro() {
 function buscarItemPorId() {
   const idRegistro = Number(document.querySelector("#idRegistro").value);
   const registros = JSON.parse(localStorage.getItem("db_registros")) ?? [];
-
   const registroEncontrado = registros.find((registro) => registro.idVaga === idRegistro);
-
-  if (!registroEncontrado) {
+    if (!registroEncontrado) {
     alert(`Reserva não encontrada!`);
     return;
   }
-
   alert(`Reserva encontrada!`);
 
-  // Limpa o conteúdo anterior da tabela de busca
+// Limpa o conteúdo anterior da tabela de busca
   tbodyB.innerHTML = "";
-
   const linha = document.createElement('tr');
   for (const propriedade of Object.keys(registroEncontrado)) {
     const valor = registroEncontrado[propriedade];
@@ -171,7 +166,6 @@ function buscarItemPorId() {
     celula.textContent = valor;
     linha.appendChild(celula);
   }
-
   tbodyB.appendChild(linha);  
 }
 
@@ -179,10 +173,7 @@ function buscarItemPorId() {
 btnBuscar.onclick = (event) => {
   event.preventDefault(); // Impede a recarga da página
   buscarItemPorId();
-  //buscarItemPorId();
 };
-
-
 
 // Deleta a reserva
 function deleteItemRegistro(index) {
