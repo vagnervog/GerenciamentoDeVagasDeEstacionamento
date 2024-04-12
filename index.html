@@ -10,7 +10,7 @@
 <body>
   <main>
     <div id="cadastro">
-      <h1>Cadastro de Vagas de Estacionamento</h1>
+      <h1 id="tituloVaga">Cadastro de vagas de estacionamento</h1>
       <form id="formVaga">
         <input type="hidden" id="id" name="id">
         <div class="divNumero">
@@ -53,7 +53,7 @@
       </div>      
     </div>
     <div id="gerenciamento">
-      <h1 id="tituloGerenciamento">Gerenciamento de Vagas de Estacionamento</h1>
+      <h1 id="tituloGerenciamento">Gerenciamento de vagas  de estacionamento</h1>
       <form id="formGerenciamento">
         <input type="hidden" id="id" name="id">
         <div class="divID">
@@ -85,7 +85,7 @@
       <div class="divTableReserva">
         <table id="tableReserva">
           <thead>
-            <tr class= "tableReserva">
+            <tr class="tableReserva">
             <th>ID</th>
             <th class="columnNome">Nome</th>
             <th class="columnPlaca">Placa</th>
@@ -99,33 +99,33 @@
         </table>
       </div>      
     </div>
-  </main>  
-  <script src="script.js"></script>
-  <main>
-    <div id="editarVagas">
-      <h1>Gerenciar vagas por ID</h1>
-      <form id="formVaga">
+    <div id="busca">
+      <h1 id="tituloBusca">Buscar registro de vaga de estacionamento</h1>
+      <form id="formBusca">
         <input type="hidden" id="id" name="id">
-        <div class="divNumero">
-          <label for="id">ID da vaga:</label>
-          <input type="text" id="numero" name="numero">
+        <div class="divIdRegistro">
+          <label for="idRegistro">ID registro:</label>
+          <input type="text" id="idRegistro" name="idRegistro">
         </div>
-        <button type="submit" id="btnSalvar">Editar</button>
-        <div class="divTableReserva">
-          <table id="tableReserva">
+        <button type="submit" id="btnBuscar">Buscar</button>
+      </form>
+        <div class="divTableBusca">
+          <table id="tableBusca">
             <thead>
-              <tr class= "tableReserva">
+              <tr class="tableBusca">
               <th>ID</th>
-              <th class="columnNome">Nome</th>
-              <th class="columnPlaca">Placa</th>
-              <th class="columnPlaca">Tipo</th>
-              <th class="columnDtentrada">Data entrada</th>
-              <th class="columnDtsaida">Data saída</th>
-              <th class="columnActionGerenciamento">Ações</th>
+              <th class="buscaNome">Nome</th>
+              <th class="buscaPlaca">Placa</th>
+              <th class="buscaTipo">Tipo</th>
+              <th class="buscaDtentrada">Data entrada</th>
+              <th class="buscaDtsaida">Data saída</th>
               </tr>
             </thead>
             <tbody></tbody>
           </table>
-        </div>  
+        </div>
+      </div>
+  </main>  
+  <script src="script.js"></script>
 </body>
 </html>

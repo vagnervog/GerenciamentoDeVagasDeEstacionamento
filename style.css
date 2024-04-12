@@ -17,17 +17,13 @@ body {
   background-attachment: fixed;
 }
 
-  #tableReserva tr:hover {
+  #tableReserva tr:hover, #tableVagas tr:hover, #tableBusca tr:hover {
     background: #bd34342a;
 }
 
-  #tableVagas, #tableReserva {
+  #tableVagas, #tableReserva, #tableBusca {
     width: 500px;
   }
-
-  #tableVagas tr:hover {
-    background: #bd34342a;
-}
 
   main {
     max-width: 600px;
@@ -37,7 +33,7 @@ body {
     align-items: left;
 }
   
-  #cadastro, #gerenciamento {
+  #cadastro, #gerenciamento, #busca {
   display: flex;
   gap: 10px;
   align-items: end;
@@ -58,13 +54,9 @@ body {
     background: #bd34342a;
 }
 
-  h1 {
+  #tituloVaga, #tituloGerenciamento, #tituloBusca {
     text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-
-  #tituloGerenciamento {
-    text-align: center;
+    font-family: 'poppins', sans-serif;
 }
 
   button {
@@ -95,12 +87,11 @@ body {
   table th {
     text-align: center;
     border-bottom: inset;
-    padding-bottom: 5px;
+    /*padding-bottom: 5px;*/
     border-radius: 5px;
 }
    
-  #cadastro, #gerenciamento, #editarVagas {
+  #cadastro, #gerenciamento, #busca {
     background-color: #fefefe85;
     border-radius: 15px;
-    width: 100%;
 }
