@@ -1,0 +1,97 @@
+* {
+  margin: 3px;
+  margin-left: 20px;
+  margin-top: 5px;
+  padding: 1px;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+  outline: none;  
+}
+
+body {
+  min-height: 100%;
+  background-image: url("thumb2-field-fence-old-cars.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+  #tableReserva tr:hover, #tableVagas tr:hover, #tableBusca tr:hover {
+    background: #bd34342a;
+}
+
+  #tableVagas, #tableReserva, #tableBusca {
+    width: 500px;
+  }
+
+  main {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+  
+  #cadastro, #gerenciamento, #busca {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  width: 100%;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+  input, select {
+    width:150px;
+    border-style:groove;
+    border-radius: 5px;
+    display: flex;
+    cursor: pointer;
+}
+ 
+  input:hover, select:hover {
+    background: #bd34342a;
+}
+
+  #tituloVaga, #tituloGerenciamento, #tituloBusca {
+    text-align: center;
+    font-family: 'poppins', sans-serif;
+}
+
+  button {
+    background-color: #d2612cc7;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 0 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 24px;
+    width: auto;
+    margin-left: 40px;
+}
+  
+  table {
+    width: 100%;
+    justify-content: left;
+}
+  
+  table td {
+    text-align: center;
+    width: 20%;
+    padding: 10px 0;
+    border-radius: 5px;
+    padding-bottom: 5px;
+}
+  
+  table th {
+    text-align: center;
+    border-bottom: inset;
+    /*padding-bottom: 5px;*/
+    border-radius: 5px;
+}
+   
+  #cadastro, #gerenciamento, #busca {
+    background-color: #fefefe85;
+    border-radius: 15px;
+}
