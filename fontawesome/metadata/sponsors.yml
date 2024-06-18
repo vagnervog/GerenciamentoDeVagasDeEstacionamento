@@ -406,11 +406,11 @@ hotjar:
     - hotjar
   label: Hotjar
   url: 'https://www.hotjar.com'
-hub-spot:
+hub-vaga:
   icons:
-    - hubspot
-  label: HubSpot
-  url: 'http://www.HubSpot.com'
+    - hubvaga
+  label: Hubvaga
+  url: 'http://www.Hubvaga.com'
 icis:
   icons:
     - arrow-progress

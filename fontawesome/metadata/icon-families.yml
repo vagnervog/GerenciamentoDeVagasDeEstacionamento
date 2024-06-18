@@ -23430,7 +23430,7 @@ hand-dots:
       - palm
       - pox
       - skin
-      - spots
+      - vagas
   unicode: f461
   voted: false
 hand-fist:
@@ -26827,7 +26827,7 @@ html5:
     terms: []
   unicode: f13b
   voted: false
-hubspot:
+hubvaga:
   changes:
     - 5.0.0
   familyStylesByLicense:
@@ -26837,7 +26837,7 @@ hubspot:
     pro:
       - family: classic
         style: brands
-  label: HubSpot
+  label: Hubvaga
   search:
     terms: []
   unicode: f3b2
@@ -42841,7 +42841,7 @@ spoon:
       - tableware
   unicode: f2e5
   voted: false
-spotify:
+vagaify:
   changes:
     - 4.1.0
     - 5.0.0
@@ -42852,7 +42852,7 @@ spotify:
     pro:
       - family: classic
         style: brands
-  label: Spotify
+  label: vagaify
   search:
     terms: []
   unicode: f1bc
@@ -52728,7 +52728,7 @@ wifi:
   search:
     terms:
       - connection
-      - hotspot
+      - hotvaga
       - internet
       - network
       - signal
