@@ -1,0 +1,195 @@
+* {
+    margin: 3px;
+    margin-left: 1px;
+    margin-top: 5px;
+    padding: 1px;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    outline: none;  
+  }
+  
+  div class{
+    margin: 3px;
+    margin-left: 100px;
+    margin-top: 10px;
+    padding: 20px;
+  }
+  
+  body {
+    min-height: 100%;
+    background-image: url("imagens/pexels-kindelmedia-9799759.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+    background-attachment: fixed;
+  }
+  
+    #tableReserva tr:hover, #tableVagas tr:hover, #tableBusca tr:hover {
+      background: #6110102a;
+  }
+  
+    #tableVagas, #tableReserva, #tableBusca {
+      width: 50px;
+    }
+  
+    main {
+      max-width: 100px;
+      width: 10%;
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+  }
+    
+    #cadastro, #gerenciamento, #busca {
+   
+    display: flex;
+    gap: 10px;
+    align-items: end;
+    width: 35%;
+    justify-content: left;
+    flex-wrap: wrap;
+  }
+  
+    input, select {
+      width:150px;
+      border-style:groove;
+      border-radius: 5px;
+      display: flex;
+      cursor: pointer;
+  }
+   
+    input:hover, select:hover {
+      background: #bd34342a;
+  }
+  
+    #tituloVaga, #tituloGerenciamento, #tituloBusca {
+      text-align: center;
+      font-family: 'poppins', sans-serif;
+  }
+  
+    button {
+      background-color: #291680c7;
+      color: rgb(255, 255, 255);
+      border: none;
+      padding: 0 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      height: 24px;
+      width: auto;
+      margin-left: 10px;
+  }
+    
+    table {
+      width: 100%;
+      justify-content: left;
+  }
+    
+    table td {
+      text-align: center;
+      width: 20%;
+      padding: 10px 0;
+      border-radius: 5px;
+      padding-bottom: 5px;
+  }
+    
+    table th {
+      text-align: center;
+      border-bottom: inset;
+      /*padding-bottom: 5px;*/
+      border-radius: 5px;
+  }
+     
+    #cadastro, #gerenciamento, #busca {
+      background-color: #fefefe85;
+      border-radius: 15px;
+  }
+  /* Estilo básico para o carrossel */
+  .carousel {
+    width: 100%;
+    max-width: 1250px; /* Ajuste a largura máxima conforme necessário */
+    margin: 0 auto; /* Centraliza o carrossel na página */
+    position: relative;
+  }
+  
+  .carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel-item {
+    display: none;
+    position: relative;
+    transition: transform 0.6s ease-in-out;
+  }
+  
+  .carousel-item.active {
+    display: block;
+  }
+  
+  .carousel-item img {
+    width: 100%; /* Garante que a imagem ocupe 100% da largura do contêiner */
+    height: 350px; /* Define uma altura fixa para as imagens, ajuste conforme necessário */
+    object-fit: cover; /* Garante que a imagem cubra todo o contêiner sem distorção */
+  }
+  
+  /* Estilo para os controles de navegação */
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .carousel-control-prev {
+    left: 10px;
+  }
+  
+  .carousel-control-next {
+    right: 10px;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+    background-color: white; /* Ícones brancos */
+    border-radius: 50%;
+  }
+  
+  /* Estilo para os botões de navegação */
+  .carousel-control-prev-icon:before,
+  .carousel-control-next-icon:before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+  }
+  
+  .carousel-control-prev-icon:before {
+    transform: rotate(135deg);
+  }
+  
+  .carousel-control-next-icon:before {
+    transform: rotate(-45deg);
+  }
+  
+  /* Estilo para melhorar a visibilidade das legendas (se houver) */
+  .carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
