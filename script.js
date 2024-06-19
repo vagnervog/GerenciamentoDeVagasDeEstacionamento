@@ -194,3 +194,127 @@ const setItensBDR = () => localStorage.setItem("db_registros", JSON.stringify(it
 loadItensVaga();
 loadItensRegistro();
 
+// Definindo a classe Estacionamento
+class Estacionamento {
+  constructor() {
+      this.vagas = [];
+  }
+
+  // Método para adicionar uma vaga
+  adicionarVaga() {
+      let novaVaga = {
+          id: this.vagas.length + 1,
+          ocupada: false,
+          carro: null,
+          entrada: null
+      };
+      this.vagas.push(novaVaga);
+      this.atualizarStatus();
+  }
+
+  // Método para remover uma vaga
+  removerVaga(id) {
+      let index = id - 1;
+      if (this.vagas[index].ocupada) {
+          console.log("Não é possível remover uma vaga ocupada.");
+          return;
+      }
+      this.vagas.splice(index, 1);
+      // Reindexar as vagas restantes
+      this.vagas.forEach((vaga, idx) => {
+          vaga.id = idx + 1;
+      });
+      this.atualizarStatus();
+  }
+
+  // Método para registrar a entrada de um carro
+  registrarEntrada(carId) {
+      let vagaLivre = this.vagas.find(vaga => !vaga.ocupada);
+      if (vagaLivre) {
+          vagaLivre.ocupada = true;
+          vagaLivre.carro = carId;
+          vagaLivre.entrada = new Date();
+          this.atualizarStatus();
+          console.log(`Carro ${carId} estacionado na vaga ${vagaLivre.id}`);
+      } else {
+          console.log("Não há vagas disponíveis.");
+      }
+  }
+
+  // Método para registrar a saída de um carro
+  registrarSaida(carId) {
+      let vagaOcupada = this.vagas.find(vaga => vaga.ocupada && vaga.carro === carId);
+      if (vagaOcupada) {
+          let tempoEstacionado = Math.ceil((new Date() - vagaOcupada.entrada) / (1000 * 60 * 60)); // horas arredondadas para cima
+          let valorDevido = tempoEstacionado * 2;
+          console.log(`Tempo estacionado: ${tempoEstacionado} horas`);
+          console.log(`Valor devido: R$ ${valorDevido.toFixed(2)}`);
+          vagaOcupada.ocupada = false;
+          vagaOcupada.carro = null;
+          vagaOcupada.entrada = null;
+          this.atualizarStatus();
+      } else {
+          console.log(`Carro ${carId} não encontrado no estacionamento.`);
+      }
+  }
+
+  // Método para atualizar o status das vagas e renderizar na página
+  atualizarStatus() {
+      let statusElement = document.getElementById('status');
+      let parkingLotElement = document.getElementById('parking-lot');
+      let parkingHTML = '';
+      let vagasLivres = 0;
+      let vagasOcupadas = 0;
+
+      this.vagas.forEach(vaga => {
+          if (vaga.ocupada) {
+              parkingHTML += `<div class="parking-spot" style="background-color: lightcoral;">${vaga.id}</div>`;
+              vagasOcupadas++;
+          } else {
+              parkingHTML += `<div class="parking-spot">${vaga.id}</div>`;
+              vagasLivres++;
+          }
+      });
+
+      statusElement.innerHTML = `Vagas ocupadas: ${vagasOcupadas} / Livres: ${vagasLivres}`;
+      parkingLotElement.innerHTML = parkingHTML;
+
+      // Mostrar ou esconder formulário de saída dependendo do estado das vagas
+      let carEntryElement = document.getElementById('car-entry');
+      let carExitElement = document.getElementById('car-exit');
+      if (vagasOcupadas > 0) {
+          carEntryElement.style.display = 'none';
+          carExitElement.style.display = 'block';
+      } else {
+          carEntryElement.style.display = 'block';
+          carExitElement.style.display = 'none';
+      }
+  }
+}
+
+// Instanciando o estacionamento
+const estacionamento = new Estacionamento();
+
+// Event listeners para botões
+document.getElementById('add-button').addEventListener('click', () => {
+  estacionamento.adicionarVaga();
+});
+
+document.getElementById('remove-button').addEventListener('click', () => {
+  estacionamento.removerVaga();
+});
+
+document.getElementById('park-button').addEventListener('click', () => {
+  let carId = document.getElementById('car-id').value.trim();
+  if (carId !== '') {
+      estacionamento.registrarEntrada(carId);
+  }
+});
+
+document.getElementById('exit-button').addEventListener('click', () => {
+  let carId = document.getElementById('car-id-exit').value.trim();
+  if (carId !== '') {
+      estacionamento.registrarSaida(carId);
+  }
+});
+
